@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 14:44:19 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/29 19:16:30 by ndesprez         ###   ########.fr       */
+/*   Created: 2023/03/29 19:01:47 by ndesprez          #+#    #+#             */
+/*   Updated: 2023/03/29 19:44:04 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(const char *src)
 {
-	size_t	i;
+	char	*dup;
+	int		len;
 
-	if (!dst || !src)
-		return (NULL);
-	if (dst < src)
+	len = ft_strlen(src);
+	dup = malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (0);
+	dup[len] = '\0';
+	while (len > 0)
 	{
-		i = 0;
-		while (i < len)
-		{
-			*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
-			i++;
-		}
+		len--;
+		dup[len] = src[len];
 	}
-	else
-	{
-		while (len)
-		{
-			len--;
-			*(unsigned char *)(dst + len) = *(unsigned char *)(src + len);
-		}
-	}
-	return (dst);
+	return (dup);
 }
