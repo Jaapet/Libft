@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:48:07 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/28 14:38:17 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:35:27 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dst)
+	if (!dst && !src)
 		return (NULL);
 	i = 0;
 	while (i < n)

@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:44:19 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/29 19:16:30 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:37:32 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	if (dst < src)
 	{
