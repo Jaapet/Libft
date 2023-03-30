@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:52:03 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/30 19:20:19 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:52:06 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	isin(char c, char const *s)
 {
-	while (s)
+	while (*s != '\0')
 	{
 		if (c == *s)
 			return (1);
@@ -31,13 +31,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*s;
 
 	i = 0;
+	j = 0;
 	len = ft_strlen(s1);
-	while (len > 0 && isin(s1[len - 1], set))
-		len--;
-	while (s1[i] && isin(s1[i], set) && len)
+	while (s1[i] && isin(s1[i], set))
 		i++;
-	if (len)
-		len -= i;
+	while (len && isin(s1[len - 1], set))
+	{
+		j++;
+		len--;
+	}
+	len = ft_strlen(s1);
+	if (len > i + j)
+		len -= i + j;
+	else
+		len = 0;
 	s = malloc(sizeof(char) * (len + 1));
 	if (!s)
 		return (NULL);
