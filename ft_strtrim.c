@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:52:03 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/31 10:37:32 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:45:50 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = beg(s1, set);
 	j = end(s1, set);
-	if (j >= i)
+	if (j >= i && j)
 		len = j - i + 1;
 	else
 		len = 0;
