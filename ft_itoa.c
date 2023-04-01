@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 11:01:10 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/31 12:17:05 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/04/01 11:51:19 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static unsigned int	get_size(int n)
 	return (size);
 }
 
-void	cat_char(char *str, char c)
+static void	cat_char(char *str, char c)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ void	cat_char(char *str, char c)
 	str[i + 1] = '\0';
 }
 
-void	fill(char *str, int n)
+static void	fill(char *str, int n)
 {
 	if (n < 0)
 	{
