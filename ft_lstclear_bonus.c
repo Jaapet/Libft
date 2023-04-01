@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 20:23:32 by ndesprez          #+#    #+#             */
-/*   Updated: 2023/03/31 20:43:05 by ndesprez         ###   ########.fr       */
+/*   Updated: 2023/04/01 11:40:52 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
+	t_list	*nxt;
 
-	while (*lst)
+	if (lst && *lst)
 	{
-		temp = (*lst)->next;
+		if ((*lst)->next)
+		{
+			temp = (*lst)->next;
+			while (temp->next)
+			{
+				nxt = temp->next;
+				ft_lstdelone(temp, del);
+				temp = nxt;
+			}
+			ft_lstdelone(temp, del);
+		}
 		ft_lstdelone(*lst, del);
-		*lst = temp;
+		*lst = NULL;
 	}
-	*lst = NULL;
 }
